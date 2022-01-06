@@ -1,19 +1,18 @@
-(function (params) {
-    function render() {
-        var list = document.querySelector('#sessions');
-        if (!list) return;
-        list.innerHTML = sessionTemplate(data.listItems);
-    };
+import getSessions, * as repo from "./sessionRepository.js";
 
-    var data = {
-        listItems: []
-    };
+function render() {
+    var list = document.querySelector('#sessions');
+    if (!list) return;
+    list.innerHTML = repo.sessionTemplate(data.listItems);
+};
 
-    getSessions()
-        .then((sessions) => {
-            console.log('promises!')
-            data.listItems = sessions;
-            render();
-        });
+var data = {
+    listItems: []
+};
 
-}())
+getSessions()
+    .then((sessions) => {
+        console.log('promises!')
+        data.listItems = sessions;
+        render();
+    });

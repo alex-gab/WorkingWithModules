@@ -1,3 +1,6 @@
+export {getSessions as default, sessionURI};
+export {sessionTemplate} from "./template.js";
+
 const sessionURI = 'sessions.json';
 let sessionList = [];
 
@@ -13,5 +16,3 @@ function getSessions() {
         oReq.send();
     })
 }
-
-export {getSessions}
